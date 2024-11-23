@@ -2,35 +2,31 @@ using UnityEngine;
 
 public class CameraLookAround : MonoBehaviour
 {
-    public Transform player;
-    public float mouseSensitivity = 15f;
-    private float cameraVerticalRotation = 2f;
+    public float mouseSensitivity = 100f; // Adjust to control sensitivity
+    public Transform playerBody; // Reference to the player's body for rotation
+
+    private float xRotation = 0f; // Track vertical rotation to clamp it
 
     void Start()
     {
-        // Lock and hide the cursor
-        Cursor.visible = false;
+        // Lock the cursor to the center of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        // Collect mouse input
-        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        // Get mouse movement input
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Debugging Mouse Input
-        //Debug.Log($"Mouse X: {inputX}, Mouse Y: {inputY}");
+        // Update vertical rotation and clamp it to avoid unnatural angles
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // Rotate the camera vertically (local X-axis)
-        cameraVerticalRotation -= inputY;
-        //cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -0f, 180f);
-        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+        // Apply vertical rotation to the camera
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Rotate the player horizontally (Y-axis)
-        if (player != null)
-        {
-            player.Rotate(Vector3.up * inputX);
-        }
+        // Rotate the player body horizontally
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }
