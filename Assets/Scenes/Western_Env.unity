@@ -8146,7 +8146,7 @@ Transform:
   m_GameObject: {fileID: 1182446921}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.480401, y: -0.067, z: 17.89}
+  m_LocalPosition: {x: -14.480401, y: -0.067, z: 17.908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8191,7 +8191,7 @@ MonoBehaviour:
   zOffset: 0
   muzzleFlash: {fileID: 824430318}
   GunSound: {fileID: 189674016}
-  fpsCam: {fileID: 1618586855}
+  fpsCam: {fileID: 0}
 --- !u!1001 &1225597252
 PrefabInstance:
   m_ObjectHideFlags: 0
