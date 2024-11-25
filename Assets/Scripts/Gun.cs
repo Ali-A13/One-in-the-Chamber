@@ -13,7 +13,8 @@ public class Gun : MonoBehaviour
     public float xOffset = 0.0f;
     public float yOffset = 0.0f;
     public float zOffset = 0.0f;
-
+    public ParticleSystem muzzleFlash;
+    public AudioSource GunSound;
     public Camera fpsCam;
 
 
@@ -35,6 +36,8 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
+        GunSound.Play();
         bulletSpawn = barrel.transform.position;
         bulletSpawn = new Vector3(bulletSpawn.x + xOffset, bulletSpawn.y + yOffset, bulletSpawn.z + zOffset);
         bulletSpawn += barrel.transform.forward * spawnOffset;
