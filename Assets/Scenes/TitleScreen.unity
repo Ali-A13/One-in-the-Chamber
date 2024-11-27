@@ -359,7 +359,6 @@ GameObject:
   - component: {fileID: 406739983}
   - component: {fileID: 406739982}
   - component: {fileID: 406739981}
-  - component: {fileID: 406739984}
   m_Layer: 5
   m_Name: startButton
   m_TagString: Untagged
@@ -374,13 +373,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406739979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783824343}
-  m_Father: {fileID: 970141914}
+  m_Father: {fileID: 2096100083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -418,7 +417,8 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
+      type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406739984}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+      - m_Target: {fileID: 2096100084}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
@@ -482,19 +482,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406739979}
   m_CullTransparentMesh: 1
---- !u!114 &406739984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406739979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4eb551067704fb4a9d0cf628f4b276b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelName: Western_Env
 --- !u!1 &557476718
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,13 +718,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634551366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 557476719}
-  m_Father: {fileID: 970141914}
+  m_Father: {fileID: 2096100083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -775,7 +762,8 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
+      type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1195,10 +1183,7 @@ RectTransform:
   - {fileID: 578103336}
   - {fileID: 1339717629}
   - {fileID: 1947060678}
-  - {fileID: 406739980}
-  - {fileID: 1546339367}
-  - {fileID: 634551367}
-  - {fileID: 1201068480}
+  - {fileID: 2096100083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -1.315, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1300,13 +1285,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201068479}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1259894909}
-  m_Father: {fileID: 970141914}
+  m_Father: {fileID: 2096100083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1344,7 +1329,8 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
+      type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1752,13 +1738,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546339366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 755055385}
-  m_Father: {fileID: 970141914}
+  m_Father: {fileID: 2096100083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1796,7 +1782,8 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -654487467, guid: d0ff88e038d1fcc43966d9c180afb2a9,
+      type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1809,7 +1796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1546339369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2096100084}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1546339369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,6 +2100,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947060677}
   m_CullTransparentMesh: 1
+--- !u!1 &2096100082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096100083}
+  - component: {fileID: 2096100084}
+  m_Layer: 5
+  m_Name: MainMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2096100083
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096100082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 406739980}
+  - {fileID: 1546339367}
+  - {fileID: 634551367}
+  - {fileID: 1201068480}
+  m_Father: {fileID: 970141914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2096100084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096100082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1e250eac793e241903c3cd976b7807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Western_Env
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
