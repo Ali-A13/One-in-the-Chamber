@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: f80a77076876a50499a43705bbafda92
+  - enabled: 1
+    path: Assets/Scenes/Western_Env.unity
+    guid: 095663204a9072442a00f951cd11017a
   m_configObjects: {}
