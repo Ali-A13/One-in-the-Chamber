@@ -15,6 +15,17 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Set initial camera rotation
+        xRotation = 65f;
+        yRotation = 0.509f;
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+
+        // Set initial camera scale
+        transform.localScale = new Vector3(1f, 1f, 2.4f);
+
+        // Set initial orientation rotation
+        orientation.rotation = Quaternion.Euler(0, 0.509f, 0);
     }
 
     // Update is called once per frame
