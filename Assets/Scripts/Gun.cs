@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Gun : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class Gun : MonoBehaviour
     public float xOffset = 0.0f;
     public float yOffset = 0.0f;
     public float zOffset = 0.0f;
-    public ParticleSystem muzzleFlash;
+    //public ParticleSystem muzzleFlash;
     public AudioSource GunSound;
     public Camera fpsCam;
+
+    [SerializeField] private VisualEffect muzzleFlash;
 
 
     void Start()
