@@ -14,7 +14,6 @@ public class Gun : MonoBehaviour
     public float xOffset = 0.0f;
     public float yOffset = 0.0f;
     public float zOffset = 0.0f;
-    //public ParticleSystem muzzleFlash;
     public AudioSource GunSound;
     public Camera fpsCam;
 
