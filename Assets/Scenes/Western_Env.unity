@@ -2713,7 +2713,7 @@ Transform:
   m_GameObject: {fileID: 539867325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99951774, z: -0, w: -0.03105338}
-  m_LocalPosition: {x: 3.69, y: 2.677814, z: -14.52}
+  m_LocalPosition: {x: 7.98, y: 2.677814, z: -16.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7064,19 +7064,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c51731ab39a5974f8bde4fc92ce571e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 4
   player: {fileID: 353680208}
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   arm: {fileID: 1995174881}
-  difficulty: 2
-  rotationSpeed: 10
+  lookSpeed: 10
   lookOffset: {x: 0, y: 0, z: 0}
+  aimOffsetWeight: 1
   bulletSpeed: 1
   spawnOffset: 0.2
   xOffset: -0.015
   yOffset: 0.019
   zOffset: 0
   GunSound: {fileID: 189674016}
-  fpsCam: {fileID: 0}
   muzzleFlash: {fileID: 742409401}
 --- !u!1001 &1697644214
 PrefabInstance:
