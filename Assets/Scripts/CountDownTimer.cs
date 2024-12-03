@@ -9,87 +9,89 @@ public class CountDownTimer : MonoBehaviour
     public GameObject greenTumbleweed;
     public TextMeshProUGUI timerText;
 
-    private float timer;
+    public float tumbleweedSpeed = 20f; //speed for all tumbleweeds
     private bool gameStarted = false;
-    private bool greenStarted = false;
-    private float greenDelay;
 
-    private static CountDownTimer instance;
+    private Vector3 redStartPos;
+    private Vector3 yellowStartPos; 
+    private Vector3 greenStartPos;
 
-    void Awake()
-    {
-        
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else
-        {
-            Destroy(gameObject); 
-        }
-    }
+    private enum TumbleweedState { Idle, RedRolling, YellowRolling, GreenRolling, Finished }
+    private TumbleweedState currentState = TumbleweedState.Idle;
 
     void Start()
     {
-        //hide all tumbleweeds initially
-        redTumbleweed.SetActive(false);
-        yellowTumbleweed.SetActive(false);
-        greenTumbleweed.SetActive(false);
+        //initial positions for the tumbleweeds
+        redStartPos = new Vector3(-20f, redTumbleweed.transform.position.y, redTumbleweed.transform.position.z);
+        yellowStartPos = new Vector3(-20f, yellowTumbleweed.transform.position.y, yellowTumbleweed.transform.position.z);
+        greenStartPos = new Vector3(-20f, greenTumbleweed.transform.position.y, greenTumbleweed.transform.position.z);
+
+        ResetTumbleweed(redTumbleweed, redStartPos);
+        ResetTumbleweed(yellowTumbleweed, yellowStartPos);
+        ResetTumbleweed(greenTumbleweed, greenStartPos);
     }
 
     void Update()
     {
         if (gameStarted)
         {
-            timer += Time.deltaTime;
-
-            //update the timer display
-            if (timerText != null)
-                timerText.text = "Time: " + Mathf.Round(timer).ToString();
-
-            if (timer < 3f)
+            switch (currentState)
             {
-                redTumbleweed.SetActive(true);
-                yellowTumbleweed.SetActive(false);
-                greenTumbleweed.SetActive(false);
-            }
-            else if (timer >= 3f && timer < 5f)
-            {
-                redTumbleweed.SetActive(false);
-                yellowTumbleweed.SetActive(true);
-                greenTumbleweed.SetActive(false);
-                if (!greenStarted)
-                {
-                    StartCoroutine(StartGreenTumbleweed());
-                    greenStarted = true;
-                }
-            }
-            else if (timer >= 5f && timer < (5f + greenDelay))
-            {
-                redTumbleweed.SetActive(false);
-                yellowTumbleweed.SetActive(true);
-                greenTumbleweed.SetActive(false);
-            }
-            else if (timer >= (5f + greenDelay))
-            {
-                redTumbleweed.SetActive(false);
-                yellowTumbleweed.SetActive(false);
-                greenTumbleweed.SetActive(true);
+                case TumbleweedState.RedRolling:
+                    MoveAndRotateTumbleweed(redTumbleweed, redStartPos, TumbleweedState.YellowRolling);
+                    break;
+                case TumbleweedState.YellowRolling:
+                    MoveAndRotateTumbleweed(yellowTumbleweed, yellowStartPos, TumbleweedState.GreenRolling);
+                    break;
+                case TumbleweedState.GreenRolling:
+                    MoveAndRotateTumbleweed(greenTumbleweed, greenStartPos, TumbleweedState.Finished);
+                    break;
+                case TumbleweedState.Finished:
+                    gameStarted = false; //count ends once all tumbleweeds have rolled
+                    break;
             }
         }
     }
 
-    IEnumerator StartGreenTumbleweed()
-    {
-        greenDelay = Random.Range(0f, 5f);
-        yield return new WaitForSeconds(greenDelay);
-    }
-
     public void StartGame()
     {
+        //reset everything to start the counter
         gameStarted = true;
-        timer = 0f;
-        greenStarted = false;
+        currentState = TumbleweedState.RedRolling;
+
+        ResetTumbleweed(redTumbleweed, redStartPos);
+        ResetTumbleweed(yellowTumbleweed, yellowStartPos);
+        ResetTumbleweed(greenTumbleweed, greenStartPos);
+    }
+
+    private void MoveAndRotateTumbleweed(GameObject tumbleweed, Vector3 resetPosition, TumbleweedState nextState)
+    {
+        //activate non active tumbleweed
+        if (!tumbleweed.activeSelf)
+            tumbleweed.SetActive(true);
+
+        //move it to the right
+        tumbleweed.transform.position += Vector3.right * tumbleweedSpeed * Time.deltaTime;
+
+        //roll the tumbleweed
+        if (tumbleweed.transform.childCount > 0)
+        {
+            tumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 2f * Time.deltaTime));
+        }
+
+        //check if the tumbleweed is 'off screen'
+        if (tumbleweed.transform.position.x > 200f) //adjust for "off screen" boundary
+        {
+            // Reset position and transition to the next state
+            tumbleweed.transform.position = resetPosition;
+            tumbleweed.SetActive(false);
+            currentState = nextState;
+        }
+    }
+
+    private void ResetTumbleweed(GameObject tumbleweed, Vector3 startPos)
+    {
+        tumbleweed.transform.position = startPos;
+        tumbleweed.SetActive(false); // Hide initially
     }
 }
