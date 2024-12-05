@@ -8,7 +8,7 @@ public class CountDownTimer : MonoBehaviour
     public GameObject yellowTumbleweed;
     public GameObject greenTumbleweed;
 
-    public float tumbleweedSpeed = 20f; //speed for all tumbleweeds
+    public float tumbleweedSpeed = 10f; //speed for all tumbleweeds
     private bool gameStarted = false;
 
     private Vector3 redStartPos;
@@ -21,9 +21,9 @@ public class CountDownTimer : MonoBehaviour
     void Start()
     {
         //initial positions for the tumbleweeds
-        redStartPos = new Vector3(1.5f, redTumbleweed.transform.position.y, redTumbleweed.transform.position.z);
-        yellowStartPos = new Vector3(1.5f, yellowTumbleweed.transform.position.y, yellowTumbleweed.transform.position.z);
-        greenStartPos = new Vector3(1.5f, greenTumbleweed.transform.position.y, greenTumbleweed.transform.position.z);
+        redStartPos = new Vector3(redTumbleweed.transform.position.x, redTumbleweed.transform.position.y, redTumbleweed.transform.position.z);
+        yellowStartPos = new Vector3(yellowTumbleweed.transform.position.x, yellowTumbleweed.transform.position.y, yellowTumbleweed.transform.position.z);
+        greenStartPos = new Vector3(greenTumbleweed.transform.position.x, greenTumbleweed.transform.position.y, greenTumbleweed.transform.position.z);
 
         ResetTumbleweed(redTumbleweed, redStartPos);
         ResetTumbleweed(yellowTumbleweed, yellowStartPos);
@@ -48,6 +48,7 @@ public class CountDownTimer : MonoBehaviour
                     MoveAndRotateTumbleweed(greenTumbleweed, greenStartPos, TumbleweedState.Finished);
                     break;
                 case TumbleweedState.Finished:
+                    //Text on screen to state Fire
                     gameStarted = false; //count ends once all tumbleweeds have rolled
                     break;
             }
