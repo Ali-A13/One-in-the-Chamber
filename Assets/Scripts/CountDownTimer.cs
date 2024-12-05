@@ -7,7 +7,6 @@ public class CountDownTimer : MonoBehaviour
     public GameObject redTumbleweed;
     public GameObject yellowTumbleweed;
     public GameObject greenTumbleweed;
-    public TextMeshProUGUI timerText;
 
     public float tumbleweedSpeed = 20f; //speed for all tumbleweeds
     private bool gameStarted = false;
@@ -22,13 +21,15 @@ public class CountDownTimer : MonoBehaviour
     void Start()
     {
         //initial positions for the tumbleweeds
-        redStartPos = new Vector3(-20f, redTumbleweed.transform.position.y, redTumbleweed.transform.position.z);
-        yellowStartPos = new Vector3(-20f, yellowTumbleweed.transform.position.y, yellowTumbleweed.transform.position.z);
-        greenStartPos = new Vector3(-20f, greenTumbleweed.transform.position.y, greenTumbleweed.transform.position.z);
+        redStartPos = new Vector3(1.5f, redTumbleweed.transform.position.y, redTumbleweed.transform.position.z);
+        yellowStartPos = new Vector3(1.5f, yellowTumbleweed.transform.position.y, yellowTumbleweed.transform.position.z);
+        greenStartPos = new Vector3(1.5f, greenTumbleweed.transform.position.y, greenTumbleweed.transform.position.z);
 
         ResetTumbleweed(redTumbleweed, redStartPos);
         ResetTumbleweed(yellowTumbleweed, yellowStartPos);
         ResetTumbleweed(greenTumbleweed, greenStartPos);
+
+        StartGame();
     }
 
     void Update()
@@ -76,11 +77,11 @@ public class CountDownTimer : MonoBehaviour
         //roll the tumbleweed
         if (tumbleweed.transform.childCount > 0)
         {
-            tumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 2f * Time.deltaTime));
+            tumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
         }
 
         //check if the tumbleweed is 'off screen'
-        if (tumbleweed.transform.position.x > 200f) //adjust for "off screen" boundary
+        if (tumbleweed.transform.position.x > 5f) //adjust for "off screen" boundary
         {
             // Reset position and transition to the next state
             tumbleweed.transform.position = resetPosition;
