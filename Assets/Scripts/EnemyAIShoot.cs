@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -10,14 +11,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAIShoot : MonoBehaviour
 {
-    public enum difficultyLevel { Easy = 4, Medium = 3, Hard = 2, Dan = 0 };
+    public enum difficultyLevel { Easy = 4, Medium = 3, Hard = 2, Dan = 0};
     public difficultyLevel difficulty;
 
     public GameObject player;
     public GameObject bullet;
-    public GameObject arm;
 
-    public float lookSpeed = 1.0f;
+    //public float lookDuration = 1.0f;
     public Vector3 lookOffset = new Vector3(0, 0, 0);
 
     private float unholsterTime;
@@ -28,11 +28,8 @@ public class EnemyAIShoot : MonoBehaviour
 
     private Vector3 playerLocation;
 
-    //Trying to figure this one out
-    private Quaternion armRotation;
-
     private bool readyToFire = false;
-    private bool dead = false;
+    //private bool dead = false;
     private Coroutine coroutine;
 
     public float bulletSpeed = 10f;
@@ -42,6 +39,13 @@ public class EnemyAIShoot : MonoBehaviour
     public float zOffset = 0.0f;
     public AudioSource GunSound;
     [SerializeField] private VisualEffect muzzleFlash;
+
+    private Vector3 startPoint;
+    private Vector3 endPoint;
+    public Vector3 endOffset;
+    public float arcHeight = 5f; // The height of the arc
+    public float duration = 2f; // How long it takes to travel the arc
+
 
 
 
@@ -62,10 +66,8 @@ public class EnemyAIShoot : MonoBehaviour
         //Getting Player location
         playerLocation = player.transform.position;
 
-        //Can't get this to work (just moves their arm so that it is pointing down)
-        //armRotation = arm.transform.rotation;
-        //arm.transform.rotation = Quaternion.Euler(armRotation.eulerAngles.x, 90, armRotation.eulerAngles.z);
-
+        startPoint = transform.position;
+        endPoint = startPoint + endOffset;
     }
 
     // Update is called once per frame
@@ -75,12 +77,12 @@ public class EnemyAIShoot : MonoBehaviour
 
 
 
-        //Need proper hitbox before implementing death, waiting on hitbox
-        if(dead)
-        {
-            StopAllCoroutines();
-            Debug.Log("You Won!");
-        }
+        ////Need proper hitbox before implementing death, waiting on hitbox
+        //if (dead)
+        //{
+        //    StopAllCoroutines();
+        //    Debug.Log("You Won!");
+        //}
 
         //After Indicator  is GO
         if (coroutine == null)
@@ -97,12 +99,30 @@ public class EnemyAIShoot : MonoBehaviour
         }
     }
 
-    void LookAtPlayer()
+    IEnumerator LookAtPlayer()
     {
-        //Implements a smoothing function to look at player, speed can be changed using lookSpeed in Unity
-        Quaternion targetRotation = Quaternion.LookRotation(playerLocation - transform.position);
-        targetRotation *= Quaternion.Euler(lookOffset);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookSpeed);
+        float timeElasped = 0f;
+        float t = 0f;
+        Quaternion targetRotation;
+
+
+        while (timeElasped < aimTime)
+        {
+            // Increment the time elapsed by the time since the last frame
+            timeElasped += Time.deltaTime;
+
+            // Calculate the normalized time (0 to 1)
+            t = Mathf.Clamp01(timeElasped / aimTime);
+
+            // Interpolate between start and end positions
+            transform.position = Vector3.Lerp(startPoint, endPoint, t);
+
+            targetRotation = Quaternion.LookRotation(playerLocation - endPoint);
+            targetRotation *= Quaternion.Euler(lookOffset);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t * 0.06f);
+
+            yield return null;
+        }
     }
 
     //Called When light is GO
@@ -118,10 +138,7 @@ public class EnemyAIShoot : MonoBehaviour
     //Called when done unholstering
     IEnumerator WaitToAim()
     {
-        //Waits for aimTime
-        yield return new WaitForSeconds(aimTime);
-        //When aimTime is Done, start looking towards player
-        LookAtPlayer();
+        yield return StartCoroutine(LookAtPlayer());
         Debug.Log("Aimed");
         //After aiming, start shooting wait
         StartCoroutine(WaitToShoot());
@@ -136,6 +153,7 @@ public class EnemyAIShoot : MonoBehaviour
         readyToFire = true;
         //Smoothing function likely not completely done so now look directly at player
         transform.LookAt(playerLocation);
+        //transform.position = gunEndPos;
     }
 
     void Shoot()
@@ -161,5 +179,4 @@ public class EnemyAIShoot : MonoBehaviour
         bulletRB.velocity = direction * bulletSpeed;
         Debug.Log("Enemy Shot");
     }
-
 }
