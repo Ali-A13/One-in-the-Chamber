@@ -1,5 +1,8 @@
 using TMPro;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Target : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class Target : MonoBehaviour
     public bool winLost = false;
     private Gun player;
     private EnemyAIShoot enemy;
+
+    
 
     void Start()
     {
@@ -42,6 +47,7 @@ public class Target : MonoBehaviour
         enemy.dead = true; //Stops AI from shooting
         winLost = true; // did win
         Debug.Log("Win Text Enabled");
+        StartCoroutine(CallLoadSceneAfterDelay());
     }
 
     public void playerLost()
@@ -50,11 +56,25 @@ public class Target : MonoBehaviour
         player.dead = true; //Stops player from shooting
         winLost = true; // did loose
         Debug.Log("Lost Text Enabled");
+        StartCoroutine(CallLoadSceneAfterDelay());
     }
 
     public void playerDraw()
     {
         drawText.enabled = true;
         Debug.Log("Draw Text Enabled");
+        StartCoroutine(CallLoadSceneAfterDelay());
+    }
+
+    private void loadEndScene()
+    {
+        SceneManager.LoadScene("GameEndScreen");
+        Debug.Log("End Scene Loaded");
+    }
+
+    IEnumerator CallLoadSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(3);
+        loadEndScene();
     }
 }

@@ -7971,7 +7971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c51731ab39a5974f8bde4fc92ce571e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 4
+  difficulty: 0
   player: {fileID: 353680208}
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   lookOffset: {x: 0, y: 0, z: 0}
