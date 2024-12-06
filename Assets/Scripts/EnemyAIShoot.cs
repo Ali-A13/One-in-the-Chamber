@@ -29,7 +29,8 @@ public class EnemyAIShoot : MonoBehaviour
     private Vector3 playerLocation;
 
     private bool readyToFire = false;
-    //private bool dead = false;
+    public bool dead = false;
+    public bool hasShot = false;
     private Coroutine coroutine;
 
     public float bulletSpeed = 10f;
@@ -47,11 +48,10 @@ public class EnemyAIShoot : MonoBehaviour
     public float duration = 2f; // How long it takes to travel the arc
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
+
         //Get difficulty factor from selected difficulty
         float difficultyFactor = (int)difficulty;
 
@@ -91,13 +91,16 @@ public class EnemyAIShoot : MonoBehaviour
             coroutine = StartCoroutine(WaitToUnholster());
         }
 
-        //After aiming and everything
-        if (readyToFire)
+        //After aiming and everything and ai is not dead
+        if (readyToFire && !dead)
         {
             Shoot();
             readyToFire = false;
         }
+        
     }
+
+
 
     IEnumerator LookAtPlayer()
     {
@@ -177,6 +180,7 @@ public class EnemyAIShoot : MonoBehaviour
         Vector3 direction = currentBullet.transform.forward;
         bulletRB.useGravity = false;
         bulletRB.velocity = direction * bulletSpeed;
+        hasShot = true; // Used for draw function
         Debug.Log("Enemy Shot");
     }
 }

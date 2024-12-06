@@ -10,12 +10,13 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed = 10f;
     public float spawnOffset = 0.2f;
-    private bool hasShot = false;
+    public bool hasShot = false;
     public float xOffset = 0.0f;
     public float yOffset = 0.0f;
     public float zOffset = 0.0f;
     public AudioSource GunSound;
     public Camera fpsCam;
+    public bool dead = false;
 
     [SerializeField] private VisualEffect muzzleFlash;
 
@@ -29,7 +30,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && hasShot == false)
+        // Only shots once if not dead
+        if(Input.GetButtonDown("Fire1") && hasShot == false && !dead)
         {
             Shoot();
         }
@@ -49,7 +51,7 @@ public class Gun : MonoBehaviour
         Vector3 direction = currentBullet.transform.forward;
         bulletRB.useGravity = false;
         bulletRB.velocity = direction * bulletSpeed;
-        //hasShot = true; // Shoot only once
+        hasShot = true; // Shoot only once
         Debug.Log("Shot");
     }
 
