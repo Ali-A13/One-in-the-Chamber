@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 100
+  isDraw: 0
 --- !u!136 &2147348194719020605
 CapsuleCollider:
   m_ObjectHideFlags: 0

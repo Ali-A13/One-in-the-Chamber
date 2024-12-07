@@ -11,8 +11,6 @@ public class Target : MonoBehaviour
     public TMP_Text lostText;
     public TMP_Text drawText;
     public bool winLost = false;
-    public bool playerWon = false;
-    public bool playerLoss = false;
     private Gun player;
     private EnemyAIShoot enemy;
 
@@ -24,8 +22,6 @@ public class Target : MonoBehaviour
         lostText.enabled = false;
         drawText.enabled = false;
         winLost = false;
-        playerWon = false;
-        playerLoss = false;
         player = FindAnyObjectByType<Gun>(); // Find the Gun script in the scene
         enemy = FindAnyObjectByType<EnemyAIShoot>(); // Find the EnemyAIShoot script in the scene
     }
@@ -50,7 +46,6 @@ public class Target : MonoBehaviour
         winText.enabled = true;
         enemy.dead = true; //Stops AI from shooting
         winLost = true; // did win
-        playerWon = true; // player won
         Debug.Log("Win Text Enabled");
         StartCoroutine(CallLoadSceneAfterDelay());
     }
@@ -59,8 +54,8 @@ public class Target : MonoBehaviour
     {
         lostText.enabled = true;
         player.dead = true; //Stops player from shooting
+        player.hasShot = true; //Stops player from shooting
         winLost = true; // did loose
-        playerLoss = true; // player lost
         Debug.Log("Lost Text Enabled");
         StartCoroutine(CallLoadSceneAfterDelay());
     }
@@ -85,4 +80,5 @@ public class Target : MonoBehaviour
         yield return new WaitForSeconds(3);
         loadEndScene();
     }
+
 }

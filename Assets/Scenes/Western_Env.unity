@@ -5591,7 +5591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 693897079}
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 20
   spawnOffset: 0.2
   hasShot: 0
   xOffset: 0.015
@@ -7978,7 +7978,7 @@ MonoBehaviour:
   aimOffsetWeight: 1
   dead: 0
   hasShot: 0
-  bulletSpeed: 10
+  bulletSpeed: 20
   spawnOffset: 0.2
   xOffset: -0.015
   yOffset: 0.019

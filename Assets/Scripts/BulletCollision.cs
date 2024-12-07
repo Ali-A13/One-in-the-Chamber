@@ -56,12 +56,12 @@ public class BulletCollision : MonoBehaviour
             Debug.Log("Hit " + collision.transform.name);
 
             //player looses -> show loose screen
-            if (target.CompareTag("Player") && !target.playerWon)
+            if (target.CompareTag("Player"))
             {
                 target.playerLost();
                 Debug.Log("Game Lost");
             }
-            else if (target.CompareTag("AI") && !target.playerLoss) //player wins -> show win screen
+            else if (target.CompareTag("AI")) //player wins -> show win screen
             {
                 target.playerWin();
                 Debug.Log("Game Won");
