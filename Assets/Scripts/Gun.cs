@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
 
         Rigidbody bulletRB = currentBullet.GetComponent<Rigidbody>();
         Vector3 direction = currentBullet.transform.forward;
-        bulletRB.useGravity = true;
+        bulletRB.useGravity = false;
         bulletRB.velocity = direction * bulletSpeed;
         hasShot = true; // Shoot only once
         Debug.Log("Shot");

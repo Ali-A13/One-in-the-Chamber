@@ -13,8 +13,9 @@ public class Target : MonoBehaviour
     public bool winLost = false;
     private Gun player;
     private EnemyAIShoot enemy;
+    public bool gameEnded = false;
 
-    
+
 
     void Start()
     {
@@ -43,28 +44,46 @@ public class Target : MonoBehaviour
 
     public void playerWin()
     {
+        if (gameEnded)
+        {
+            Debug.Log("Game already ended");
+            return;
+        }
         winText.enabled = true;
         enemy.dead = true; //Stops AI from shooting
         winLost = true; // did win
         Debug.Log("Win Text Enabled");
         StartCoroutine(CallLoadSceneAfterDelay());
+        gameEnded = true;
     }
 
     public void playerLost()
     {
+        if (gameEnded)
+        {
+            Debug.Log("Game already ended");
+            return;
+        }
         lostText.enabled = true;
         player.dead = true; //Stops player from shooting
         player.hasShot = true; //Stops player from shooting
         winLost = true; // did loose
         Debug.Log("Lost Text Enabled");
         StartCoroutine(CallLoadSceneAfterDelay());
+        gameEnded = true;
     }
 
     public void playerDraw()
     {
+        if (gameEnded)
+        {
+            Debug.Log("Game already ended");
+            return;
+        }
         drawText.enabled = true;
         Debug.Log("Draw Text Enabled");
         StartCoroutine(CallLoadSceneAfterDelay());
+        gameEnded = true;
     }
 
     private void loadEndScene()
