@@ -2152,7 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e250eac793e241903c3cd976b7807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Western_Env
+  LevelName: cutscene
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
