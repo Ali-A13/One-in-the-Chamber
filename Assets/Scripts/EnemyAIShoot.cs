@@ -17,7 +17,6 @@ public class EnemyAIShoot : MonoBehaviour
     public GameObject player;
     public GameObject bullet;
 
-    //public float lookDuration = 1.0f;
     public Vector3 lookOffset = new Vector3(0, 0, 0);
 
     private float unholsterTime;
@@ -74,13 +73,6 @@ public class EnemyAIShoot : MonoBehaviour
         //Still need stuff here for waiting until indicator is GO, waiting on indicator
 
 
-
-        ////Need proper hitbox before implementing death, waiting on hitbox
-        //if (dead)
-        //{
-        //    StopAllCoroutines();
-        //    Debug.Log("You Won!");
-        //}
 
         //After Indicator  is GO
         if (coroutine == null)
