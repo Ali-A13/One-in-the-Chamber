@@ -29,8 +29,8 @@ public class EnemyAIShoot : MonoBehaviour
     private Vector3 playerLocation;
 
     private bool readyToFire = false;
-    public bool dead = false;
-    public bool hasShot = false;
+    private bool dead = false;
+    private bool hasShot = false;
     private Coroutine coroutine;
 
     public float bulletSpeed = 10f;
@@ -44,8 +44,6 @@ public class EnemyAIShoot : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 endPoint;
     public Vector3 endOffset;
-    public float arcHeight = 5f; // The height of the arc
-    public float duration = 2f; // How long it takes to travel the arc
 
 
     // Start is called before the first frame update
@@ -92,7 +90,7 @@ public class EnemyAIShoot : MonoBehaviour
         }
 
         //After aiming and everything and ai is not dead
-        if (readyToFire && !dead)
+        if (readyToFire && !dead && !hasShot)
         {
             Shoot();
             readyToFire = false;
@@ -182,5 +180,15 @@ public class EnemyAIShoot : MonoBehaviour
         bulletRB.velocity = direction * bulletSpeed;
         hasShot = true; // Used for draw function
         Debug.Log("Enemy Shot");
+    }
+
+    public bool GetShootStatus()
+    {
+        return hasShot;
+    }
+
+    public void SetShootStatus(bool status)
+    {
+        hasShot = status;
     }
 }

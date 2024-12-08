@@ -6301,6 +6301,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babd6b2c6e057424e8b5300168447ab2, type: 3}
+--- !u!1 &1244149802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244149804}
+  - component: {fileID: 1244149803}
+  m_Layer: 0
+  m_Name: WinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1244149803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244149802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e6fbbeb585e90468ef68539537faf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1880121232}
+  enemy: {fileID: 539867325}
+  playerGun: {fileID: 1222016382}
+  enemyGun: {fileID: 1681779649}
+  winText: {fileID: 1502240429}
+  lostText: {fileID: 771094981}
+  drawText: {fileID: 1642532069}
+--- !u!4 &1244149804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244149802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.147713, y: -7.094052, z: 15.04588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245456134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8608,8 +8659,6 @@ MonoBehaviour:
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   lookOffset: {x: 0, y: 0, z: 0}
   aimOffsetWeight: 1
-  dead: 0
-  hasShot: 0
   bulletSpeed: 10
   spawnOffset: 0.2
   xOffset: -0.015
@@ -8618,8 +8667,6 @@ MonoBehaviour:
   GunSound: {fileID: 649361422}
   muzzleFlash: {fileID: 1973840264}
   endOffset: {x: 0, y: 0.4, z: -0.48}
-  arcHeight: 5
-  duration: 2
 --- !u!1001 &1697644214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13298,3 +13345,4 @@ SceneRoots:
   - {fileID: 534510819}
   - {fileID: 1073845458}
   - {fileID: 656806362}
+  - {fileID: 1244149804}

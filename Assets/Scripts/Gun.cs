@@ -1,5 +1,6 @@
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.VFX;
 
 public class Gun : MonoBehaviour
@@ -54,5 +55,16 @@ public class Gun : MonoBehaviour
         hasShot = true; // Shoot only once
         Debug.Log("Shot");
     }
+
+    public bool GetShootStatus()
+    {
+        return hasShot;
+    }
+
+    public void SetShootStatus(bool status)
+    {
+        hasShot = status;
+    }
+
 
 }
