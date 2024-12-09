@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CountDownTimer : MonoBehaviour
 {
@@ -17,12 +18,17 @@ public class CountDownTimer : MonoBehaviour
     private enum TumbleweedState { Idle, RedRolling, YellowRolling, GreenRolling, Finished }
     private TumbleweedState currentState = TumbleweedState.Idle;
 
+    private float greenStartTime;
+
     void Start()
     {   
+        greenStartTime = Random.Range(5, 10);
+
         //initial positions for the tumbleweeds
         redStartPos = redTumbleweed.transform.position;
         yellowStartPos = yellowTumbleweed.transform.position;
         greenStartPos = greenTumbleweed.transform.position;
+    
 
         ResetTumbleweed(redTumbleweed, redStartPos);
         ResetTumbleweed(yellowTumbleweed, yellowStartPos);
@@ -44,8 +50,8 @@ public class CountDownTimer : MonoBehaviour
                     MoveAndRotateTumbleweed(yellowTumbleweed, yellowStartPos, TumbleweedState.GreenRolling);
                     break;
                 case TumbleweedState.GreenRolling:
-                    // check green tumbleweed position before finishing
-                    MoveGreenTumbleweed();
+                    StartCoroutine(greenRandActivation());
+                    gameStarted = false;
                     break;
                 case TumbleweedState.Finished:
                     gameStarted = false; //end timer
@@ -82,19 +88,32 @@ public class CountDownTimer : MonoBehaviour
             tumbleweed.transform.position = resetPosition;//reset position and transition to the next state
             tumbleweed.SetActive(false);
             currentState = nextState;
+            // if(tumbleweed == yellowTumbleweed) {
+            //     StartCoroutine(greenRandActivation());
+            // }
         }
+    }
+
+
+    IEnumerator greenRandActivation()
+    {
+        //Waits for unholsterTime
+        yield return new WaitForSeconds(greenStartTime);
+        Debug.Log("Green Has Started");
+        MoveGreenTumbleweed();
     }
 
     private void MoveGreenTumbleweed()
     {
         if (!greenTumbleweed.activeSelf) greenTumbleweed.SetActive(true);
+
         greenTumbleweed.transform.position += Vector3.right * tumbleweedSpeed * Time.deltaTime;
 
         if (greenTumbleweed.transform.childCount > 0)
             greenTumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
 
-        //enable movement when green tumbleweed reaches x = 2.5
-        if (!gameEnabled && greenTumbleweed.transform.position.x >= 2.5f)
+        //enable movement when green tumbleweed reaches x = 1
+        if (!gameEnabled && greenTumbleweed.transform.position.x >= 1f)
         {
             gameEnabled = true;
             Debug.Log("Game Enabled!");
@@ -103,9 +122,12 @@ public class CountDownTimer : MonoBehaviour
         //reset position and transition to the next state
         if (greenTumbleweed.transform.position.x > 5f)
         {
+            Debug.Log("Inside if of MoveGreenTumbleweed()");
             greenTumbleweed.transform.position = greenStartPos;
             greenTumbleweed.SetActive(false);
-            currentState = TumbleweedState.Finished;
+            //currentState = TumbleweedState.Finished;
+            gameStarted=false;
+
         }
     }
 
