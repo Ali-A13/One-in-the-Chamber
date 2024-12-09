@@ -67,28 +67,22 @@ public class EnemyAIShoot : MonoBehaviour
         endPoint = startPoint + endOffset;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Still need stuff here for waiting until indicator is GO, waiting on indicator
+        if (!CountDownTimer.gameEnabled) return; // Wait for game start
 
-
-
-        //After Indicator  is GO
         if (coroutine == null)
         {
-            //Start unholster timer
             coroutine = StartCoroutine(WaitToUnholster());
         }
 
-        //After aiming and everything and ai is not dead
         if (readyToFire && !dead && !hasShot)
         {
             Shoot();
             readyToFire = false;
         }
-        
     }
+
 
 
 

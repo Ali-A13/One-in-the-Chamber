@@ -31,6 +31,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!CountDownTimer.gameEnabled) return; // Disable input until the game starts
+        
         // Only shots once if not dead
         if(Input.GetButtonDown("Fire1") && hasShot == false && !dead)
         {

@@ -27,27 +27,26 @@ public class PlayerCam : MonoBehaviour
         // Set initial orientation rotation
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
-
-    // Update is called once per frame
     void Update()
     {
+        if (!CountDownTimer.gameEnabled) return; // Disable input until the game starts
+
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
         yRotation += mouseX;
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -65f, 65f);
         yRotation = Mathf.Clamp(yRotation, -50f, 50f);
-        //BUG FIX HERE 
-        
-        Vector3 zScale = new Vector3(1,1,xRotation/45+1);
-        if(zScale.z < 1){
+
+        Vector3 zScale = new Vector3(1, 1, xRotation / 45 + 1);
+        if (zScale.z < 1)
+        {
             zScale.z = 1;
         }
         transform.localScale = zScale;
-        //
+
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
-
     }
+
 }
