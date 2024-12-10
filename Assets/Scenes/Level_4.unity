@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7ed994c1997814049b44c36a823bba6c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3487,11 +3487,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  winText: {fileID: 1502240429}
-  lostText: {fileID: 771094981}
-  drawText: {fileID: 1642532069}
-  winLost: 1
-  gameEnded: 0
 --- !u!136 &539867329
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5837,13 +5832,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971139679}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.83795005, y: -0.5085767, z: -0.1609575, w: 0.11524834}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.686, y: -157.223, z: -117.151}
 --- !u!114 &971139682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8863,6 +8858,7 @@ MonoBehaviour:
   yellowTumbleweed: {fileID: 534510818}
   greenTumbleweed: {fileID: 1073845457}
   tumbleweedSpeed: 4
+  yellowFinished: 0
 --- !u!1 &1681779649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5884405469530735240, guid: 3d6c7430bd21a564489df266ea8864e1,
@@ -8892,8 +8888,6 @@ MonoBehaviour:
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   lookOffset: {x: 0, y: 0, z: 0}
   aimOffsetWeight: 0
-  dead: 0
-  hasShot: 0
   bulletSpeed: 20
   spawnOffset: 0.2
   xOffset: -0.015
@@ -8902,8 +8896,6 @@ MonoBehaviour:
   GunSound: {fileID: 1753869464}
   muzzleFlash: {fileID: 652255231}
   endOffset: {x: 0, y: 0.4, z: -0.48}
-  arcHeight: 5
-  duration: 2
 --- !u!4 &1691676925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd880d0ca1b6a1745973f0236729e4ec,
@@ -9917,11 +9909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  winText: {fileID: 1502240429}
-  lostText: {fileID: 771094981}
-  drawText: {fileID: 1642532069}
-  winLost: 1
-  gameEnded: 0
 --- !u!1 &1910045351
 GameObject:
   m_ObjectHideFlags: 0

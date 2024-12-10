@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3340,11 +3340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  winText: {fileID: 1502240429}
-  lostText: {fileID: 771094981}
-  drawText: {fileID: 1642532069}
-  winLost: 1
-  gameEnded: 0
 --- !u!136 &539867329
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5558,7 +5553,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.59
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5616,13 +5611,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971139679}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.3964747, y: -0.69689465, z: -0.14633514, w: 0.5794236}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.803, y: -107.189, z: -48.329}
 --- !u!114 &971139682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8562,6 +8557,7 @@ MonoBehaviour:
   yellowTumbleweed: {fileID: 534510818}
   greenTumbleweed: {fileID: 1073845457}
   tumbleweedSpeed: 4
+  yellowFinished: 0
 --- !u!1 &1681779649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5884405469530735240, guid: 3d6c7430bd21a564489df266ea8864e1,
@@ -8591,8 +8587,6 @@ MonoBehaviour:
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   lookOffset: {x: 0, y: 0, z: 0}
   aimOffsetWeight: 1
-  dead: 0
-  hasShot: 0
   bulletSpeed: 10
   spawnOffset: 0.2
   xOffset: -0.015
@@ -8601,8 +8595,6 @@ MonoBehaviour:
   GunSound: {fileID: 1753869464}
   muzzleFlash: {fileID: 652255231}
   endOffset: {x: 0, y: 0.4, z: -0.48}
-  arcHeight: 5
-  duration: 2
 --- !u!1001 &1697644214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9610,11 +9602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  winText: {fileID: 1502240429}
-  lostText: {fileID: 771094981}
-  drawText: {fileID: 1642532069}
-  winLost: 1
-  gameEnded: 0
 --- !u!1 &1910045351
 GameObject:
   m_ObjectHideFlags: 0
