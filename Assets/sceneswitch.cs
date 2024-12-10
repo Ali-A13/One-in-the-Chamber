@@ -8,7 +8,7 @@ public class sceneswitch : MonoBehaviour
 {
     // Start is called before the first frame update
     public PlayableDirector playableDirector;
-    
+    public Animation anima;
     void OnEnable()
     {
 
@@ -29,9 +29,12 @@ public class sceneswitch : MonoBehaviour
 
     // This method is called when the Timeline stops
     void OnTimelineStopped(PlayableDirector director)
+    {   
+        anima.Play("fadeout2");
+        Invoke("DoSomething", 1f); 
+    }
+        void DoSomething()
     {
-
-
         SceneManager.LoadScene("Western_Env");
     }
 

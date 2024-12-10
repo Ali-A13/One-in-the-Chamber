@@ -30,6 +30,7 @@ public class WinController : MonoBehaviour
     public TMP_Text lostText;
     public TMP_Text drawText;
 
+    public Animator anim;
 
 
 
@@ -57,16 +58,20 @@ public class WinController : MonoBehaviour
         if (!gameEnd)
         {
             //Check if player died, if so, set playerLoss
-            if (playerTarget.GetDead() == true)
+            if (playerTarget.GetDead() == true){
                 playerLoss = true;
-
+            }
             //Check if enemy died, if so, set playerWin
-            if (enemyTarget.GetDead() == true)
+            if (enemyTarget.GetDead() == true){
                 playerWin = true;
+                anim.SetBool("isdead", true);
+            }
 
             //Check if both are dead (same time), if so, set draw
-            if (playerWin && playerLoss)
+            if (playerWin && playerLoss){
                 draw = true;
+                anim.SetBool("isdead", true);
+            }
 
             //Check if both player and AI have shot
             if ((playerWeapon.GetShootStatus() == true) && (enemyWeapon.GetShootStatus() == true))
@@ -128,8 +133,6 @@ public class WinController : MonoBehaviour
         loadEndScene();
 
     }
-
-    //Function to handle player Loss. Shows loss text then displays end scene after some time 
 
     IEnumerator handlePlayerLoss()
     {

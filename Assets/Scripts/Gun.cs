@@ -2,7 +2,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.VFX;
-
+using TMPro; // Import TextMeshPro namespace
 public class Gun : MonoBehaviour
 {
 
@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     public AudioSource GunSound;
     public Camera fpsCam;
     public bool dead = false;
+    public TMP_Text tmpText; 
 
     [SerializeField] private VisualEffect muzzleFlash;
 
@@ -25,7 +26,7 @@ public class Gun : MonoBehaviour
     void Start()
     {
         //barrel = transform.Find("Grips").gameObject;
-        
+        tmpText.text = "1";
     }
 
     // Update is called once per frame
@@ -55,6 +56,7 @@ public class Gun : MonoBehaviour
         bulletRB.useGravity = false;
         bulletRB.velocity = direction * bulletSpeed;
         hasShot = true; // Shoot only once
+        tmpText.text = "0";
         Debug.Log("Shot");
     }
 
