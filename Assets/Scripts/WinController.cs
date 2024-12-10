@@ -122,7 +122,7 @@ public class WinController : MonoBehaviour
         else if (playerWin)
             StartCoroutine(handlePlayerWin());
         else if (playerLoss)
-            StartCoroutine(handlePlayerLoss());
+            SceneManager.LoadScene("Deathanimation");
     }
 
     //Function to handle player win. Shows win text then displays end scene after some time 
@@ -132,13 +132,6 @@ public class WinController : MonoBehaviour
         yield return new WaitForSeconds(3);
         loadEndScene();
 
-    }
-
-    IEnumerator handlePlayerLoss()
-    {
-        lostText.enabled = true;
-        yield return new WaitForSeconds(3);
-        loadEndScene();
     }
 
     //Function to handle draw. Shows draw text then displays end scene after some time 
