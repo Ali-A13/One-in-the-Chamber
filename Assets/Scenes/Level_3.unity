@@ -6297,7 +6297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222016382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13e2acbf2c80391468fe95795e2c3126, type: 3}
   m_Name: 
@@ -6313,6 +6313,7 @@ MonoBehaviour:
   GunSound: {fileID: 189674016}
   fpsCam: {fileID: 0}
   dead: 0
+  tmpText: {fileID: 0}
   muzzleFlash: {fileID: 742409401}
 --- !u!1001 &1225597252
 PrefabInstance:
@@ -8760,7 +8761,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681779649}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c51731ab39a5974f8bde4fc92ce571e, type: 3}
   m_Name: 

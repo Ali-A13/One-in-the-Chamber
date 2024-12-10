@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
      public Animation anim;
      public void LoadLevel()
      {
-          anim.Play("fadein");
+          anim.Play("fadeout");
           Invoke("DoSomething", 1f);
      }
      

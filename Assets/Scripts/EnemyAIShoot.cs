@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Net;
 using System.Threading;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.VFX;
 using static UnityEngine.GraphicsBuffer;
