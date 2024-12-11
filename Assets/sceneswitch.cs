@@ -8,6 +8,7 @@ public class sceneswitch : MonoBehaviour
 {
     // Start is called before the first frame update
     public PlayableDirector playableDirector;
+    public GameObject model;
     public Animation anima;
     public string level;
     public string animname;
@@ -32,6 +33,7 @@ public class sceneswitch : MonoBehaviour
     // This method is called when the Timeline stops
     void OnTimelineStopped(PlayableDirector director)
     {   
+        model.SetActive(false);
         anima.Play(animname);
         Invoke("DoSomething", 1f); 
     }
