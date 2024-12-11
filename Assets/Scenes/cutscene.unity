@@ -5832,6 +5832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1569729357}
   anima: {fileID: 1022581574}
+  level: Western_Env
+  animname: fadeout2
 --- !u!1001 &1841729536
 PrefabInstance:
   m_ObjectHideFlags: 0
