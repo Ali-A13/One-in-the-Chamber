@@ -1177,6 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1377902383}
+  model: {fileID: 234785302}
   anima: {fileID: 1428259002}
   level: GameEndScreen
   animname: fadeanim

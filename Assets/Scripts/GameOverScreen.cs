@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+
     public void RestartButton()
     {
         SceneManager.LoadScene("Western_Env");

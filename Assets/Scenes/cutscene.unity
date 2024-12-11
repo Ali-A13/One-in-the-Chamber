@@ -5875,7 +5875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1569729357}
-  model: {fileID: 0}
+  model: {fileID: 1514410228}
   anima: {fileID: 1022581574}
   level: Western_Env
   animname: fadeout2
