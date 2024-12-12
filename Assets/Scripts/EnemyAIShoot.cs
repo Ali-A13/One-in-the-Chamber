@@ -55,9 +55,9 @@ public class EnemyAIShoot : MonoBehaviour
         aimAccuracy = Random.Range(0, difficultyFactor) * aimOffsetWeight;
 
         //Timings range from difficultyFactor - 1 to difficulty factor (ex: Easy: 3-4 seconds per action)
-        unholsterTime = Random.Range(difficultyFactor - 1, difficultyFactor);
-        aimTime = Random.Range(difficultyFactor - 1, difficultyFactor);
-        shootTime = Random.Range(difficultyFactor - 1, difficultyFactor);
+        unholsterTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
+        aimTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
+        shootTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
 
         //Getting Player location
         playerLocation = player.transform.position;
