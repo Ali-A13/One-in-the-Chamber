@@ -107,7 +107,7 @@ public class WinController : MonoBehaviour
     IEnumerator checkForMiss()
     {
         //Wait for a couple of seconds after both fire
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         //If no game end conditions occur, set draw
         if (!playerWin && !playerLoss && !draw)
             draw = true;
@@ -150,6 +150,15 @@ public class WinController : MonoBehaviour
         Cursor.visible = true;
         SceneManager.LoadScene("GameEndScreen");
         Debug.Log("End Scene Loaded");
+    }
+
+    //Returns when player has won only (not a draw)
+    public bool playerWon()
+    {
+        if (playerWin && !playerLoss)
+            return true;
+        else
+            return false;
     }
 
 
