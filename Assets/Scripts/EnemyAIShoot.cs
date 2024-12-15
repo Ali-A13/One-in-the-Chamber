@@ -10,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAIShoot : MonoBehaviour
 {
-    public enum difficultyLevel { Easy = 4, Medium = 3, Hard = 2, Dan = 0};
+    public enum difficultyLevel { Easy = 5, Medium = 3, Hard = 2, Dan = 0};
     public difficultyLevel difficulty;
 
     public GameObject player;
@@ -55,9 +55,9 @@ public class EnemyAIShoot : MonoBehaviour
         aimAccuracy = Random.Range(0, difficultyFactor) * aimOffsetWeight;
 
         //Timings range from difficultyFactor - 1 to difficulty factor (ex: Easy: 3-4 seconds per action)
-        unholsterTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
-        aimTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
-        shootTime = Random.Range(difficultyFactor - 2, difficultyFactor - 1);
+        unholsterTime = Random.Range(difficultyFactor - 3, difficultyFactor - 1);
+        aimTime = Random.Range(difficultyFactor - 3, difficultyFactor - 1);
+        shootTime = Random.Range(difficultyFactor - 3, difficultyFactor - 1);
 
         //Getting Player location
         playerLocation = player.transform.position;

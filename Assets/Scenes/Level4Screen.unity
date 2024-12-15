@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Level \n3"
+  m_text: "Level \n4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b88f8589d544074b8fccb974d895ace, type: 2}
   m_sharedMaterial: {fileID: 4371464683173699828, guid: 6b88f8589d544074b8fccb974d895ace,
@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level_3
+  anim: {fileID: 0}
 --- !u!1 &548297012
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -304}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 441, y: 470}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1095084876
