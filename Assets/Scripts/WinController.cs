@@ -32,7 +32,7 @@ public class WinController : MonoBehaviour
 
     public Animator anim;
 
-
+    public AudioSource winSound;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,13 @@ public class WinController : MonoBehaviour
         //get gun and ai scripts
         playerWeapon = playerGun.GetComponent<Gun>();
         enemyWeapon = enemyGun.GetComponent<EnemyAIShoot>();
+        
+        // make sure winSound is assigned
+        winSound = GetComponent<AudioSource>();
+            if (winSound == null)
+            {
+                Debug.LogWarning("No AudioSource found or assigned. Please add one.");
+            }
     }
 
     // Update is called once per frame
@@ -129,6 +136,13 @@ public class WinController : MonoBehaviour
     IEnumerator handlePlayerWin()
     {
         winText.enabled = true;
+        
+        // play the 'cha-ching'
+        if (winSound != null)
+        {
+            winSound.Play();
+        }
+
         yield return new WaitForSeconds(3);
         loadEndScene();
 
