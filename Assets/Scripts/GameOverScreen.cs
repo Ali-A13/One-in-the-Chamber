@@ -20,9 +20,19 @@ public class GameOverScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        //retrieve previous level and highest level won from PlayerPrefs
+        //retrieve previous level
         previousLevel = PlayerPrefs.GetInt("CurrentLevel");
+
+        //Setting highest level won to 0 if no level cleared
+        if (!PlayerPrefs.HasKey("HighestLevelWon"))
+        {
+            PlayerPrefs.SetInt("HighestLevelWon", 0);
+            PlayerPrefs.Save();
+        }
+
+        //Retrieve highest Level Won
         highestLevelWon = PlayerPrefs.GetInt("HighestLevelWon");
+        Debug.Log(highestLevelWon);
 
         //Find next level name
         nextLevelName = findNextLevel();
