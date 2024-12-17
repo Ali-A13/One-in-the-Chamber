@@ -11,9 +11,13 @@ public class BulletCollision : MonoBehaviour
     private EnemyAIShoot enemy;
     private Target target;
 
+    private Rigidbody bulletRigidbody;
+
     private void Start()
     {
         target = FindAnyObjectByType<Target>();
+        // Get the Rigidbody component of the bullet
+        bulletRigidbody = GetComponent<Rigidbody>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -23,6 +27,12 @@ public class BulletCollision : MonoBehaviour
         {
             target.TakeDamage(bulletDamage); // Apply damage
             Debug.Log("Hit " + collision.transform.name);
+        }
+
+        // Enable gravity for the bullet upon collision
+        if (bulletRigidbody != null)
+        {
+            bulletRigidbody.useGravity = true;
         }
     }
 
