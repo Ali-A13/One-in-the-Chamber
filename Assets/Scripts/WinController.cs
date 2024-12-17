@@ -116,6 +116,8 @@ public class WinController : MonoBehaviour
     //Function to process winner
     void CallEndFunctions()
     {
+        // Set gravity to normal
+        playerWeapon.SetBulletGravity(true);
         //Handle each condition accordingly
         if (draw)
             StartCoroutine(handleDraw());
@@ -123,6 +125,7 @@ public class WinController : MonoBehaviour
             StartCoroutine(handlePlayerWin());
         else if (playerLoss)
             SceneManager.LoadScene("Deathanimation");
+            enemyGun.SetActive(false);  
     }
 
     //Function to handle player win. Shows win text then displays end scene after some time 

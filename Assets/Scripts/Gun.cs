@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private VisualEffect muzzleFlash;
 
+    private Rigidbody bulletRB;
 
     void Start()
     {
@@ -51,9 +52,10 @@ public class Gun : MonoBehaviour
         bulletSpawn += barrel.transform.forward * spawnOffset;
         GameObject currentBullet = Instantiate(bullet, bulletSpawn, barrel.transform.rotation);  // Use appropriate rotation if necessary
 
-        Rigidbody bulletRB = currentBullet.GetComponent<Rigidbody>();
+        bulletRB = currentBullet.GetComponent<Rigidbody>();
         Vector3 direction = currentBullet.transform.forward;
-        bulletRB.useGravity = false;
+        //bulletRB.useGravity = false;
+        SetBulletGravity(false);
         bulletRB.velocity = direction * bulletSpeed;
         hasShot = true; // Shoot only once
         tmpText.text = "0";
@@ -70,5 +72,9 @@ public class Gun : MonoBehaviour
         hasShot = status;
     }
 
+    public void SetBulletGravity(bool status)
+    {
+        bulletRB.useGravity = status;
+    }
 
 }

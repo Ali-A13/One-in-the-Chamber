@@ -43,6 +43,8 @@ public class EnemyAIShoot : MonoBehaviour
     private Vector3 endPoint;
     public Vector3 endOffset;
 
+    private Rigidbody bulletRB;
+
 
     // Start is called before the first frame update
     void Start()
@@ -159,9 +161,10 @@ public class EnemyAIShoot : MonoBehaviour
         GameObject currentBullet = Instantiate(bullet, bulletSpawn, finalRotation);
 
         //Similar to Gun script
-        Rigidbody bulletRB = currentBullet.GetComponent<Rigidbody>();
+        bulletRB = currentBullet.GetComponent<Rigidbody>();
         Vector3 direction = currentBullet.transform.forward;
-        bulletRB.useGravity = false;
+        //bulletRB.useGravity = false;
+        SetBulletGravity(false);
         bulletRB.velocity = direction * bulletSpeed;
         hasShot = true; // Used for draw function
         Debug.Log("Enemy Shot");
@@ -175,5 +178,10 @@ public class EnemyAIShoot : MonoBehaviour
     public void SetShootStatus(bool status)
     {
         hasShot = status;
+    }
+
+    public void SetBulletGravity(bool status)
+    {
+        bulletRB.useGravity = status;
     }
 }
