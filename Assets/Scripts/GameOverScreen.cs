@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using UnityEditor;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -42,23 +39,32 @@ public class GameOverScreen : MonoBehaviour
             nextButton.SetActive(true);
         else
             nextButton.SetActive(false);
-
     }
+
     public void RestartButton()
     {
-        //Find previous level name, then switch to it
+        //Find previous level name, then switch to it - with delay
         previousLevelName = findPreviousLevel();
-        SceneManager.LoadScene(previousLevelName);
+        StartCoroutine(LoadSceneWithDelay(previousLevelName));
     }
+
     public void MainMenuButton()
     {
-        //Load Main menu
-        SceneManager.LoadScene("TitleScreen");
+        //Load Main menu - with delay
+        StartCoroutine(LoadSceneWithDelay("TitleScreen"));
     }
+
     public void NextLevelButton()
     {
-        //Load next level
-        SceneManager.LoadScene(nextLevelName);
+        //Load next level - with delay
+        StartCoroutine(LoadSceneWithDelay(nextLevelName));
+    }
+
+    //coroutine to load the scene with delay
+    private IEnumerator LoadSceneWithDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(0.5f); //0.5 second delay
+        SceneManager.LoadScene(sceneName);
     }
 
     //Finds name of previous level
