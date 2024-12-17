@@ -3780,7 +3780,7 @@ Transform:
   m_GameObject: {fileID: 534510818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.055246104, z: -0, w: 0.9984728}
-  m_LocalPosition: {x: 0.14000002, y: 1.5, z: -19.65}
+  m_LocalPosition: {x: 0.68, y: 1.5, z: -19.59}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4820,7 +4820,7 @@ Transform:
   m_GameObject: {fileID: 656806361}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.055246104, z: -0, w: 0.9984728}
-  m_LocalPosition: {x: 0.14, y: 1.5, z: -19.65}
+  m_LocalPosition: {x: 0.67999995, y: 1.5, z: -19.59}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6664,7 +6664,7 @@ Transform:
   m_GameObject: {fileID: 1073845457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.055246104, z: -0, w: 0.9984728}
-  m_LocalPosition: {x: 0.14000002, y: 1.5, z: -19.65}
+  m_LocalPosition: {x: 0.67999995, y: 1.5, z: -19.59}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9939,7 +9939,7 @@ MonoBehaviour:
   player: {fileID: 353680208}
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
   lookOffset: {x: 0, y: 0, z: 0}
-  aimOffsetWeight: 1
+  aimOffsetWeight: 0.5
   bulletSpeed: 13.5
   spawnOffset: 0.2
   xOffset: -0.015
