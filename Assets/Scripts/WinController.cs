@@ -34,9 +34,20 @@ public class WinController : MonoBehaviour
 
     public AudioSource winSound;
 
+    public Camera mainCamera;
+    public Camera endCamera;
+    private EndCameraController endCamMotion;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Enabling main camera and disabling end camera
+        if (mainCamera != null && endCamera != null)
+        {
+            mainCamera.enabled = true;
+            endCamera.enabled = false;
+        }
+
         //Disabling all text
         winText.enabled = false;
         lostText.enabled = false;
@@ -49,13 +60,16 @@ public class WinController : MonoBehaviour
         //get gun and ai scripts
         playerWeapon = playerGun.GetComponent<Gun>();
         enemyWeapon = enemyGun.GetComponent<EnemyAIShoot>();
-        
+
         // make sure winSound is assigned
         winSound = GetComponent<AudioSource>();
-            if (winSound == null)
-            {
-                Debug.LogWarning("No AudioSource found or assigned. Please add one.");
-            }
+        if (winSound == null)
+        {
+            Debug.LogWarning("No AudioSource found or assigned. Please add one.");
+        }
+
+        // Get the EndCameraController component
+        endCamMotion = endCamera.GetComponent<EndCameraController>();
     }
 
     // Update is called once per frame
@@ -65,17 +79,20 @@ public class WinController : MonoBehaviour
         if (!gameEnd)
         {
             //Check if player died, if so, set playerLoss
-            if (playerTarget.GetDead() == true){
+            if (playerTarget.GetDead() == true)
+            {
                 playerLoss = true;
             }
             //Check if enemy died, if so, set playerWin
-            if (enemyTarget.GetDead() == true){
+            if (enemyTarget.GetDead() == true)
+            {
                 playerWin = true;
                 //anim.SetBool("isdead", true);
             }
 
             //Check if both are dead (same time), if so, set draw
-            if (playerWin && playerLoss){
+            if (playerWin && playerLoss)
+            {
                 draw = true;
                 //anim.SetBool("isdead", true);
             }
@@ -119,10 +136,13 @@ public class WinController : MonoBehaviour
         if (!playerWin && !playerLoss && !draw)
             draw = true;
     }
-    
+
     //Function to process winner
     void CallEndFunctions()
     {
+        //Switch camera to end camera
+        switchCamera();
+
         //Handle each condition accordingly
         if (draw)
             StartCoroutine(handleDraw());
@@ -138,7 +158,7 @@ public class WinController : MonoBehaviour
     {
         enemyGun.SetActive(false);  // Make player gun disappear
         winText.enabled = true;
-        
+
         // play the 'cha-ching'
         if (winSound != null)
         {
@@ -189,5 +209,20 @@ public class WinController : MonoBehaviour
             return false;
     }
 
+    private void switchCamera()
+    {
+        if (mainCamera != null && endCamera != null)
+        {
+            mainCamera.enabled = false; // Disable main camera
+            endCamera.enabled = true; // Enable end camera
+            endCamMotion.StartMovingCamera(); // Start moving the camera
+        }
+        else
+        {
+            Debug.LogWarning("No cameras found or assigned. Please add one.");
+        }
 
+
+    }
 }
+
