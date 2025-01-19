@@ -8,7 +8,7 @@ public class BulletCollision : MonoBehaviour
     public float bulletDamage = 100f;
     public bool isDraw = false;
     private Target target;
-    private RagdollModeOnOff ragdollModeOnOff;
+    private RagdollModeOnOff ragdollMode;
 
     private Rigidbody bulletRigidbody;
 
@@ -18,7 +18,7 @@ public class BulletCollision : MonoBehaviour
         // Get the Rigidbody component of the bullet
         bulletRigidbody = GetComponent<Rigidbody>();
         // Assign the reference to RagdollModeOnOff
-        ragdollModeOnOff = FindObjectOfType<RagdollModeOnOff>(); // Adjust this as per your game structure
+        //ragdollModeOnOff = FindObjectOfType<RagdollModeOnOff>(); // Adjust this as per your game structure
     }
 
     void OnCollisionEnter(Collision collision)
@@ -29,9 +29,10 @@ public class BulletCollision : MonoBehaviour
             target.TakeDamage(bulletDamage); // Apply damage
             Debug.Log("Hit " + collision.transform.name);
 
-            if (ragdollModeOnOff != null)
+            ragdollMode = collision.transform.GetComponent<RagdollModeOnOff>(); // Get the RagdollModeOnOff script from the object we hit
+            if (ragdollMode != null)
             {
-                ragdollModeOnOff.RagdollModeOn(); // Turn on ragdoll during bullet collision
+                ragdollMode.RagdollModeOn(); // Turn on ragdoll during bullet collision
             }
             else
             {

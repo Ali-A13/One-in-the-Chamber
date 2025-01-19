@@ -30,7 +30,7 @@ public class WinController : MonoBehaviour
     public TMP_Text lostText;
     public TMP_Text drawText;
 
-    public Animator anim;
+    //public Animator anim;
 
     public AudioSource winSound;
 
@@ -71,13 +71,13 @@ public class WinController : MonoBehaviour
             //Check if enemy died, if so, set playerWin
             if (enemyTarget.GetDead() == true){
                 playerWin = true;
-                anim.SetBool("isdead", true);
+                //anim.SetBool("isdead", true);
             }
 
             //Check if both are dead (same time), if so, set draw
             if (playerWin && playerLoss){
                 draw = true;
-                anim.SetBool("isdead", true);
+                //anim.SetBool("isdead", true);
             }
 
             //Check if both player and AI have shot
