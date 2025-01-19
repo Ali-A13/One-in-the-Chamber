@@ -7,9 +7,8 @@ public class BulletCollision : MonoBehaviour
 {
     public float bulletDamage = 100f;
     public bool isDraw = false;
-    private Gun player;
-    private EnemyAIShoot enemy;
     private Target target;
+    private RagdollModeOnOff ragdollModeOnOff;
 
     private Rigidbody bulletRigidbody;
 
@@ -18,6 +17,8 @@ public class BulletCollision : MonoBehaviour
         target = FindAnyObjectByType<Target>();
         // Get the Rigidbody component of the bullet
         bulletRigidbody = GetComponent<Rigidbody>();
+        // Assign the reference to RagdollModeOnOff
+        ragdollModeOnOff = FindObjectOfType<RagdollModeOnOff>(); // Adjust this as per your game structure
     }
 
     void OnCollisionEnter(Collision collision)
@@ -27,6 +28,16 @@ public class BulletCollision : MonoBehaviour
         {
             target.TakeDamage(bulletDamage); // Apply damage
             Debug.Log("Hit " + collision.transform.name);
+
+            if (ragdollModeOnOff != null)
+            {
+                ragdollModeOnOff.RagdollModeOn(); // Turn on ragdoll during bullet collision
+            }
+            else
+            {
+                Debug.LogWarning("RagdollModeOnOff component is not assigned.");
+            }
+
         }
 
         // Enable gravity for the bullet upon collision

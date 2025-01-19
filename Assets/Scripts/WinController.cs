@@ -129,13 +129,15 @@ public class WinController : MonoBehaviour
         else if (playerWin)
             StartCoroutine(handlePlayerWin());
         else if (playerLoss)
-            SceneManager.LoadScene("Deathanimation");
-            enemyGun.SetActive(false);  // Make player gun disappear
+            //SceneManager.LoadScene("Deathanimation");
+            playerGun.SetActive(false);  // Make player gun disappear
+
     }
 
     //Function to handle player win. Shows win text then displays end scene after some time 
     IEnumerator handlePlayerWin()
     {
+        enemyGun.SetActive(false);  // Make player gun disappear
         winText.enabled = true;
         
         // play the 'cha-ching'
