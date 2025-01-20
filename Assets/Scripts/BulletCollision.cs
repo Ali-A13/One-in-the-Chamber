@@ -22,7 +22,7 @@ public class BulletCollision : MonoBehaviour
         winController = FindObjectOfType<WinController>();
         if (winController == null)
         {
-            Debug.LogError("WinController not found in the scene. Ensure it is assigned or present in the scene.");
+            Debug.LogError("WinController not found in the scene. Ensure it is present in the scene.");
         }
         
 
@@ -45,6 +45,13 @@ public class BulletCollision : MonoBehaviour
             if (ragdollMode != null)
             {
                 ragdollMode.RagdollModeOn(); // Turn on ragdoll during bullet collision
+
+                // Calculate the force direction and magnitude
+                Vector3 forceDirection = collision.contacts[0].point - transform.position;
+                forceDirection = forceDirection.normalized;
+
+                // Apply the force to the object we hit
+                ragdollMode.ApplyForceToRagdoll(forceDirection);
             }
             else
             {

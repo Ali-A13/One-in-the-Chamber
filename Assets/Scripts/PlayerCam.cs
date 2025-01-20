@@ -10,6 +10,8 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
+
+    private WinController winController;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +28,17 @@ public class PlayerCam : MonoBehaviour
 
         // Set initial orientation rotation
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        winController = FindObjectOfType<WinController>();
+        if (winController == null)
+        {
+            Debug.LogError("WinController not found in the scene. Ensure it is present in the scene.");
+        }
     }
     void Update()
     {
         if (!CountDownTimer.gameEnabled) return; // Disable input until the game starts
+        if (winController.gameEnd) return; // Disable input when the game ends
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
