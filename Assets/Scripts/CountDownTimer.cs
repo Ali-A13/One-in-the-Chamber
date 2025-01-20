@@ -5,6 +5,7 @@ public class CountDownTimer : MonoBehaviour
     public GameObject redTumbleweed;
     public GameObject yellowTumbleweed;
     public GameObject greenTumbleweed;
+    public GameObject stopPoint;
 
     public float tumbleweedSpeed = 10f;
     private bool gameStarted = false;
@@ -79,8 +80,8 @@ public class CountDownTimer : MonoBehaviour
         if (tumbleweed.transform.childCount > 0)
             tumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
 
-        //check if the tumbleweed is 'off screen'
-        if (tumbleweed.transform.position.x > 5f)//adjust for "off screen" boundary
+        //check if the tumbleweed is 'close enough' to the stop point (using distance)
+        if (Vector3.Distance(tumbleweed.transform.position, stopPoint.transform.position) < 0.5f) // adjust for "close enough" distance
         {
             Debug.Log("Inside 'if' statement for Yellow tumbleweed movement");
             tumbleweed.transform.position = resetPosition;//reset position and transition to the next state
@@ -100,8 +101,8 @@ public class CountDownTimer : MonoBehaviour
         if (tumbleweed.transform.childCount > 0)
             tumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
 
-        //check if the tumbleweed is 'off screen'
-        if (tumbleweed.transform.position.x > 5f)//adjust for "off screen" boundary
+        //check if the tumbleweed is 'close enough' to the stop point (using distance)
+        if (Vector3.Distance(tumbleweed.transform.position, stopPoint.transform.position) < 0.5f) // adjust for "close enough" distance
         {
             tumbleweed.transform.position = resetPosition;//reset position and transition to the next state
             tumbleweed.SetActive(false);
@@ -127,14 +128,14 @@ public class CountDownTimer : MonoBehaviour
             greenTumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
 
         //enable movement when green tumbleweed reaches x = 1
-        if (!gameEnabled && greenTumbleweed.transform.position.x >= 1f)
+        if (!gameEnabled && IsTumbleweedInView(greenTumbleweed))
         {
             gameEnabled = true;
             Debug.Log("Game Enabled!");
         }
 
-        //reset position and transition to the next state
-        if (greenTumbleweed.transform.position.x > 5f)
+        //check if the tumbleweed is 'close enough' to the stop point (using distance)
+        if (Vector3.Distance(greenTumbleweed.transform.position, stopPoint.transform.position) < 0.5f) // adjust for "close enough" distance
         {
             greenTumbleweed.transform.position = greenStartPos;
             greenTumbleweed.SetActive(false);
@@ -146,5 +147,14 @@ public class CountDownTimer : MonoBehaviour
     {
         tumbleweed.transform.position = startPos;
         tumbleweed.SetActive(false);
+    }
+
+    // Helper function to check if the tumbleweed is within the player's view
+    private bool IsTumbleweedInView(GameObject tumbleweed)
+    {
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(tumbleweed.transform.position);
+        // Check if the viewport position is within the camera's view
+        // The values of viewportPosition.x and viewportPosition.y should be between 0 and 1 for the object to be visible in the camera's frustum.
+        return (viewportPosition.x >= 0 && viewportPosition.x <= 1 && viewportPosition.y >= 0 && viewportPosition.y <= 1);
     }
 }

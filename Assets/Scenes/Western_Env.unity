@@ -7586,6 +7586,7 @@ MonoBehaviour:
   redTumbleweed: {fileID: 656806361}
   yellowTumbleweed: {fileID: 534510818}
   greenTumbleweed: {fileID: 1073845457}
+  stopPoint: {fileID: 1804917417}
   tumbleweedSpeed: 4
   yellowFinished: 0
 --- !u!1 &1681779649 stripped
@@ -8290,6 +8291,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b915431696bc64b9f7fda8f01fc770, type: 3}
+--- !u!1 &1804917417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804917418}
+  m_Layer: 0
+  m_Name: TumbleweedEndPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804917418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804917417}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.055246104, z: -0, w: 0.9984728}
+  m_LocalPosition: {x: 4.29, y: 1.5, z: -11.45}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -6.334, z: 0}
 --- !u!4 &1809299188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2e61f56d9a2a4a4796235c18b09bcab,
@@ -9084,3 +9116,4 @@ SceneRoots:
   - {fileID: 495677054}
   - {fileID: 855305230}
   - {fileID: 1440620069}
+  - {fileID: 1804917418}
