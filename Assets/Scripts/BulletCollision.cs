@@ -9,6 +9,7 @@ public class BulletCollision : MonoBehaviour
     public bool isDraw = false;
     private Target target;
     private RagdollModeOnOff ragdollMode;
+    private WinController winController;
 
     private Rigidbody bulletRigidbody;
 
@@ -17,8 +18,14 @@ public class BulletCollision : MonoBehaviour
         target = FindAnyObjectByType<Target>();
         // Get the Rigidbody component of the bullet
         bulletRigidbody = GetComponent<Rigidbody>();
-        // Assign the reference to RagdollModeOnOff
-        //ragdollModeOnOff = FindObjectOfType<RagdollModeOnOff>(); // Adjust this as per your game structure
+
+        winController = FindObjectOfType<WinController>();
+        if (winController == null)
+        {
+            Debug.LogError("WinController not found in the scene. Ensure it is assigned or present in the scene.");
+        }
+        
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -26,6 +33,11 @@ public class BulletCollision : MonoBehaviour
         Target target = collision.transform.GetComponent<Target>(); // Get the Target script from the object we hit
         if (target != null) // If the object has a Target script
         {
+            if(winController.gameEnd)
+            {
+                return;
+            }
+
             target.TakeDamage(bulletDamage); // Apply damage
             Debug.Log("Hit " + collision.transform.name);
 

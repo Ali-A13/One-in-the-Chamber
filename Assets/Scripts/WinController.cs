@@ -24,7 +24,7 @@ public class WinController : MonoBehaviour
     private bool playerWin = false;
     private bool playerLoss = false;
     private bool draw = false;
-    private bool gameEnd = false;
+    public bool gameEnd = false;
 
     public TMP_Text winText;
     public TMP_Text lostText;
