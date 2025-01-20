@@ -11,6 +11,9 @@ public class PlayerCam : MonoBehaviour
     float xRotation;
     float yRotation;
 
+    float startYRotation; // Intial y rotation of the camera
+    float startXRotation; // Intial x rotation of the camera
+
     private WinController winController;
     // Start is called before the first frame update
     void Start()
@@ -18,9 +21,12 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        startYRotation = transform.eulerAngles.y;
+        startXRotation = transform.eulerAngles.x;
+
         // Set initial camera rotation
-        xRotation = 65f;
-        yRotation = 2.445f;
+        xRotation = 65f; // start by looking down
+        yRotation = startYRotation;
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
         // Set initial camera scale
@@ -44,8 +50,8 @@ public class PlayerCam : MonoBehaviour
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
         yRotation += mouseX;
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -65f, 65f);
-        yRotation = Mathf.Clamp(yRotation, -50f, 50f);
+        xRotation = Mathf.Clamp(xRotation, startXRotation - 65f, startXRotation + 65f);
+        yRotation = Mathf.Clamp(yRotation, startYRotation - 50f, startYRotation + 50f);
 
         Vector3 zScale = new Vector3(1, 1, xRotation / 45 + 1);
         if (zScale.z < 1)
