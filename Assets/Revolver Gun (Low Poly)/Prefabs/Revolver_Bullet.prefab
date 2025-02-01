@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4370623647014059339}
   - component: {fileID: 1964524110199458177}
   - component: {fileID: 6854570669277115847}
-  - component: {fileID: -2880830189191786759}
   - component: {fileID: 2147348194719020605}
+  - component: {fileID: 2784371873772301347}
   m_Layer: 0
   m_Name: Revolver_Bullet
   m_TagString: Untagged
@@ -113,20 +113,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2880830189191786759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19026177839507540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16d12cc29e82f645892825af429a630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletDamage: 100
-  isDraw: 0
 --- !u!136 &2147348194719020605
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -150,3 +136,17 @@ CapsuleCollider:
   m_Height: 0.053854436
   m_Direction: 2
   m_Center: {x: -0.0152023155, y: 0.05043812, z: 0.018563055}
+--- !u!114 &2784371873772301347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19026177839507540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16d12cc29e82f645892825af429a630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 100
+  isDraw: 0

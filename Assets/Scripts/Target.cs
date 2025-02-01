@@ -3,13 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class Target : MonoBehaviour
 {
     public float health = 50f;
     private bool isDead = false;
-
-
 
     void Start()
     {
@@ -38,3 +37,4 @@ public class Target : MonoBehaviour
     }
 
 }
+
