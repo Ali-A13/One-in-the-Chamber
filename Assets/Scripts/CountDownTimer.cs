@@ -20,6 +20,9 @@ public class CountDownTimer : MonoBehaviour
 
     public bool yellowFinished = false;
 
+    public enum MovementDirection { Right, Left, Forward, Backward }
+    public MovementDirection tumbleweedDirection = MovementDirection.Right;
+
     void Start()
     {   
         //initial positions for the tumbleweeds
@@ -74,7 +77,7 @@ public class CountDownTimer : MonoBehaviour
         //activate non active tumbleweed
         if (!tumbleweed.activeSelf) tumbleweed.SetActive(true);
         //move it to the right
-        tumbleweed.transform.position += Vector3.right * tumbleweedSpeed * Time.deltaTime;
+        tumbleweed.transform.position += GetDirectionVector() * tumbleweedSpeed * Time.deltaTime;
 
         //roll the tumbleweed
         if (tumbleweed.transform.childCount > 0)
@@ -95,7 +98,7 @@ public class CountDownTimer : MonoBehaviour
         //activate non active tumbleweed
         if (!tumbleweed.activeSelf) tumbleweed.SetActive(true);
         //move it to the right
-        tumbleweed.transform.position += Vector3.right * tumbleweedSpeed * Time.deltaTime;
+        tumbleweed.transform.position += GetDirectionVector() * tumbleweedSpeed * Time.deltaTime;
 
         //roll the tumbleweed
         if (tumbleweed.transform.childCount > 0)
@@ -122,7 +125,7 @@ public class CountDownTimer : MonoBehaviour
     {
         yellowTumbleweed.SetActive(false);
         if (!greenTumbleweed.activeSelf) greenTumbleweed.SetActive(true);
-        greenTumbleweed.transform.position += Vector3.right * tumbleweedSpeed * Time.deltaTime;
+        greenTumbleweed.transform.position += GetDirectionVector() * tumbleweedSpeed * Time.deltaTime;
 
         if (greenTumbleweed.transform.childCount > 0)
             greenTumbleweed.transform.GetChild(0).Rotate(Vector3.back * (tumbleweedSpeed * 100f * Time.deltaTime));
@@ -156,5 +159,23 @@ public class CountDownTimer : MonoBehaviour
         // Check if the viewport position is within the camera's view
         // The values of viewportPosition.x and viewportPosition.y should be between 0 and 1 for the object to be visible in the camera's frustum.
         return (viewportPosition.x >= 0 && viewportPosition.x <= 1 && viewportPosition.y >= 0 && viewportPosition.y <= 1);
+    }
+
+    private Vector3 GetDirectionVector()
+    {
+        switch(tumbleweedDirection)
+        {
+            case MovementDirection.Right:
+                return Vector3.right;
+            case MovementDirection.Left:
+                return Vector3.left;
+            case MovementDirection.Forward:
+                return Vector3.forward;
+            case MovementDirection.Backward:
+                return Vector3.back;
+            default:
+                return Vector3.right;
+        }
+
     }
 }

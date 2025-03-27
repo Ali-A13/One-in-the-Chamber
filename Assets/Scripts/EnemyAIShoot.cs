@@ -10,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAIShoot : MonoBehaviour
 {
-    public enum difficultyLevel { Easy = 5, Medium = 3, Hard = 2, Dan = 0};
+    public enum difficultyLevel { Easy = 5, Medium = 3, Hard = 2, Dan = 1};
     public difficultyLevel difficulty;
 
     public GameObject player;
