@@ -13274,7 +13274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50137d39d5297c488136c4ff9e4081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 27
   WinScript: {fileID: 1244149803}
 --- !u!4 &705414736
 Transform:
@@ -21018,7 +21018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 693897079}
   bullet: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
-  bulletSpeed: 40
+  bulletSpeed: 50
   spawnOffset: 0.2
   hasShot: 0
   xOffset: 0.015
@@ -38116,7 +38116,7 @@ PrefabInstance:
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}
       propertyPath: bulletSpeed
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}

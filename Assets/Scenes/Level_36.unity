@@ -20522,7 +20522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50137d39d5297c488136c4ff9e4081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 36
   WinScript: {fileID: 1244149803}
 --- !u!4 &705414736
 Transform:
@@ -61479,7 +61479,7 @@ PrefabInstance:
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}
       propertyPath: difficulty
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}
@@ -61489,12 +61489,12 @@ PrefabInstance:
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}
       propertyPath: endOffset.x
-      value: 0.2
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}
       propertyPath: endOffset.z
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}

@@ -10175,13 +10175,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495677050}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7262041, z: -0, w: 0.6874792}
-  m_LocalPosition: {x: 294.82098, y: 3.164, z: 161.486}
+  m_LocalRotation: {x: -0, y: -0.69714534, z: -0, w: 0.7169299}
+  m_LocalPosition: {x: 293.48, y: 3.164, z: 159.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 180, y: 86.862, z: 180}
+  m_LocalEulerAnglesHint: {x: 180, y: 91.603, z: 180}
 --- !u!114 &495677055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13272,7 +13272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50137d39d5297c488136c4ff9e4081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 14
   WinScript: {fileID: 1244149803}
 --- !u!4 &705414736
 Transform:
@@ -15868,13 +15868,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855305229}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9034352, z: -0, w: 0.42872474}
+  m_LocalRotation: {x: -0, y: -0.69714534, z: -0, w: 0.7169299}
   m_LocalPosition: {x: 286.36618, y: 3.164, z: 159.31767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 180, y: 50.772995, z: 180}
+  m_LocalEulerAnglesHint: {x: 180, y: 91.603, z: 180}
 --- !u!1001 &858902768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24972,13 +24972,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440620068}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7262041, z: -0, w: 0.6874792}
-  m_LocalPosition: {x: 294.82098, y: 3.164, z: 161.486}
+  m_LocalRotation: {x: -0, y: -0.69714534, z: -0, w: 0.7169299}
+  m_LocalPosition: {x: 293.48, y: 3.164, z: 159.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 180, y: 86.862, z: 180}
+  m_LocalEulerAnglesHint: {x: 180, y: 91.603, z: 180}
 --- !u!4 &1442618105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 501295248943452728, guid: d6a5e2c4aefa6804b8f7d2af9a9676b5,
@@ -37961,6 +37961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: endOffset.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747093272660091534, guid: 2b4660647f8db2643939b2a27fdeaec6,
+        type: 3}
+      propertyPath: aimOffsetWeight
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8110014806124146505, guid: 2b4660647f8db2643939b2a27fdeaec6,
         type: 3}

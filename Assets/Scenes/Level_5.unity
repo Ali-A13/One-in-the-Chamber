@@ -13185,7 +13185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50137d39d5297c488136c4ff9e4081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 5
   WinScript: {fileID: 1244149803}
 --- !u!4 &705414736
 Transform:
@@ -29458,6 +29458,7 @@ MonoBehaviour:
   stopPoint: {fileID: 1804917417}
   tumbleweedSpeed: 4
   yellowFinished: 0
+  tumbleweedDirection: 0
 --- !u!4 &1680458003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11355a25db0506844a48ab38776c3f99,
