@@ -9,7 +9,8 @@ public class ButtonSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();        
+        audioSource = GetComponent<AudioSource>();      
+        audioSource.volume = PlayerPrefs.GetFloat("SoundVolume", .2f); // Set the volume to the saved value or default to .2
     }
 
     public void PlaySound() 

@@ -61,6 +61,13 @@ public class EnemyAIShoot : MonoBehaviour
         aimTime = Random.Range(difficultyFactor - 3, difficultyFactor - 1);
         shootTime = Random.Range(difficultyFactor - 3, difficultyFactor - 1);
 
+        if (difficulty == difficultyLevel.Dan)
+        {
+            unholsterTime = 0f;
+            aimTime = 0f;
+            shootTime = 0.5f;
+        }
+
         //Getting Player location
         playerLocation = player.transform.position;
 
